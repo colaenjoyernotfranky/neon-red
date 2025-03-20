@@ -17,7 +17,7 @@ case "$selected" in
         systemctl suspend
         ;;
     *Lock*)
-        i3lock -p default -c 000000
+        xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
         ;;
     *)
         ;;
