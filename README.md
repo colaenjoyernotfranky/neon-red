@@ -16,7 +16,7 @@ This is my first i3 configuration which I use on a daily basis and it works both
 
 * Before pulling, install the required packages:  
   ```
-  yay -Sy nm-applet dunst pasystray flameshot picom-pijulius-next-git blueman-applet i3blocks pipewire feh kitty pactl rofi xcolor nemo
+  yay -Sy nm-applet dunst pasystray flameshot picom-pijulius-next-git blueman-applet i3blocks pipewire feh kitty pactl rofi xcolor nemo i3lock
   ```
   (If you have an NVIDIA GPU in your system, follow a guide on how to set up your drivers correctly and install the necessary drivers aswell as nvidia-settings)
 
