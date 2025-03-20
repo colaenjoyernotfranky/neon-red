@@ -1,0 +1,29 @@
+################################################################################################################################
+#   .                             ....             .       .x+=:.                       ..                             .x+=:.  # 
+#  @88>    .x~~"*Weu.         .xH888888Hx.        @88>    z`    ^%                x .d88"                ..           z`    ^% # 
+#  %8P    d8Nu.  9888c      .H8888888888888:      %8P        .   <k  .d``          5888R                @L               .   <k# 
+#   .     88888  98888      888*"""?""*88888X      .       .@8Ned8"  @8Ne.   .u    '888R         u     9888i   .dL     .@8Ned8"# 
+# .@88u   "***"  9888%     'f     d8x.   ^%88k   .@88u   .@^%8888"   %8888:u@88N    888R      us888u.  `Y888k:*888.  .@^%8888" # 
+#''888E`       ..@8*"      '>    <88888X   '?8  ''888E` x88:  `)8b.   `888I  888.   888R   .@88 "8888"   888E  888I x88:  `)8b.# 
+#  888E     ````"8Weu       `:..:`888888>    8>   888E  8888N=*8888    888I  888I   888R   9888  9888    888E  888I 8888N=*8888# 
+#  888E    ..    ?8888L            `"*88     X    888E   %8"    R88    888I  888I   888R   9888  9888    888E  888I  %8"    R88# 
+#  888E  :@88N   '8888N       .xHHhx.."      !    888E    @8Wou 9%   uW888L  888'   888R   9888  9888    888E  888I   @8Wou 9% # 
+#  888&  *8888~  '8888F      X88888888hx. ..!     888&  .888888P`   '*88888Nu88P   .888B . 9888  9888   x888N><888' .888888P`  # 
+#  R888" '*8"`   9888%      !   "*888888888"      R888" `   ^"F     ~ '88888F`     ^*888%  "888*""888"   "88"  888  `   ^"F    # 
+#   ""     `~===*%"`               ^"***"`         ""                  888 ^         "%     ^Y"   ^Y'          88F             # 
+#                                                                      *8E                                    98"              # 
+#                                            ~PC~                      '8>                                  ./"                # 
+#                                                                       "                                  ~`                  #
+################################################################################################################################
+
+# Monitor and Nvidia setup
+#exec --no-startup-id nvidia-settings --assign "CurrentMetaMode=DP-0: 2560x1440_165 +0+1080 {AllowGSYNCCompatible=On}, DP-2: 2560x1440_165 +2560+1080 {AllowGSYNCCompatible=On}, HDMI-0: 1920x1080_60 +320+0, HDMI-1: 1920x1080_60 +5120+1260"
+#exec --no-startup-id "xrandr --setprovideroutputsource modesetting NVIDIA-0"
+exec --no-startup-id "xrandr --auto"
+#exec --no-startup-id "xrandr --output DP-0 --primary --rate 165"
+exec_always --no-startup-id xrdb -merge ~/.Xresources
+
+# Assign workspaces to displays
+#workspace 1 output DP-0
+#workspace 2 output DP-2
+#workspace 3 output HDMI-0

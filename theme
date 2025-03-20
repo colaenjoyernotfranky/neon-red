@@ -1,0 +1,62 @@
+####################################################################################################
+#   .                          .....                                                               # 
+#  @88>    .x~~"*Weu.       .H8888888h.  ~-.    .uef^"                                             # 
+#  %8P    d8Nu.  9888c      888888888888x  `> :d88E                     ..    .     :              # 
+#   .     88888  98888     X~     `?888888hx~ `888E            .u     .888: x888  x888.       .u   # 
+# .@88u   "***"  9888%     '      x8.^"*88*"   888E .z8k    ud8888.  ~`8888~'888X`?888f`   ud8888. # 
+#''888E`       ..@8*"       `-:- X8888x        888E~?888L :888'8888.   X888  888X '888>  :888'8888.# 
+#  888E     ````"8Weu            488888>       888E  888E d888 '88%"   X888  888X '888>  d888 '88%"# 
+#  888E    ..    ?8888L        .. `"88*        888E  888E 8888.+"      X888  888X '888>  8888.+"   # 
+#  888E  :@88N   '8888N      x88888nX"      .  888E  888E 8888L        X888  888X '888>  8888L     # 
+#  888&  *8888~  '8888F     !"*8888888n..  :   888E  888E '8888c. .+  "*88%""*88" '888!` '8888c. .+#
+#  R888" '*8"`   9888%     '    "*88888888*   m888N= 888>  "88888%      `~    "    `"`    "88888%  #
+#   ""     `~===*%"`               ^"***"`     `Y"   888     "YP'                           "YP'   #
+#                                                   J88"                                           #
+#                                                   @%                                             #
+#                                                 :"                                               # 
+####################################################################################################
+
+#                       primary 	secondary	teritary
+set $urgent_colors	    #ef2967		#fce969		#ef2967
+set $focused_colors	    #ef2967		#ef2967		#120926
+set $unfocused_colors   #120926   #120926   #ffffff
+set $separator_color	  #666666
+set $statusline_color	  #ffffff
+set $background_color	  #120926
+
+# Add additional if needed
+set $wallpaper1 #"$HOME/.config/i3/wallpapers/neo_japan.jpg"
+set $wallpaper2 #"$HOME/.config/i3/wallpapers/neon_japan.jpg"
+set $wallpaper3 #"$HOME/.config/i3/wallpapers/jdm_car.jpg"
+#set $wallpaper... ...
+
+# Wallpapers
+exec_always --no-startup-id feh --bg-scale $wallpaper1 --bg-scale $wallpaper2 --bg-scale $wallpaper3
+
+# i3Bar
+bar {
+        status_command i3blocks -c ~/.config/i3/$MY_HOSTNAME/i3blocks/config
+        binding_mode_indicator yes
+        position top
+        output primary  
+        
+        colors {
+                background $background_color
+                statusline $statusline_color
+                separator $separator_color
+                focused_workspace $focused_colors
+                inactive_workspace $unfocused_colors
+                active_workspace $unfocused_colors
+                urgent_workspace $urgent_colors
+        }
+}
+
+# Windows/Frames
+font pango:JetBrainsMono Nerd Font 8
+client.focused $focused_colors
+client.unfocused $unfocused_colors
+client.urgent $urgent_colors
+client.placeholder $unfocused_colors
+client.focused_inactive $unfocused_colors 
+gaps inner 5
+smart_gaps on

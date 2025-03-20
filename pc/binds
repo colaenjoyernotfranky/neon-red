@@ -1,0 +1,128 @@
+##############################################################################################
+#   .                           ...     ..         .                     ..          .x+=:.  # 
+#  @88>    .x~~"*Weu.        .=*8888x <"?88h.     @88>                 dF           z`    ^% # 
+#  %8P    d8Nu.  9888c      X>  '8888H> '8888     %8P      u.    u.   '88bu.           .   <k# 
+#   .     88888  98888     '88h. `8888   8888      .     x@88k u@88c. '*88888bu      .@8Ned8"# 
+# .@88u   "***"  9888%     '8888 '8888    "88>   .@88u  ^"8888""8888"   ^"*8888N   .@^%8888" # 
+#''888E`       ..@8*"       `888 '8888.xH888x.  ''888E`   8888  888R   beWE "888L x88:  `)8b.# 
+#  888E     ````"8Weu         X" :88*~  `*8888>   888E    8888  888R   888E  888E 8888N=*8888# 
+#  888E    ..    ?8888L     ~"   !"`      "888>   888E    8888  888R   888E  888E  %8"    R88# 
+#  888E  :@88N   '8888N      .H8888h.      ?88    888E    8888  888R   888E  888F   @8Wou 9% # 
+#  888&  *8888~  '8888F     :"^"88888h.    '!     888&   "*88*" 8888" .888N..888  .888888P`  # 
+#  R888" '*8"`   9888%      ^    "88888hx.+"      R888"    ""   'Y"    `"888*""   `   ^"F    # 
+#   ""     `~===*%"`   ~PC~        ^"**""          ""                     ""                 # 
+##############################################################################################
+# Use CTRL + F and keywords to navigate
+
+# Global variables
+set $mod Mod4
+set $mod2 Shift
+set $mod3 Mod1
+set $rofiCfg ~/.config/i3/rofi/config.rasi
+set $kittyCfg ~/.config/i3/kitty/kitty.conf
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+set $scripts ~/.config/i3/scripts
+set $refresh_i3status killall -SIGUSR1 i3status
+tiling_drag modifier titlebar
+
+# System controls [closewindow|mousemovement|nextwindow|fullscreen|minimize|togglefloat|focusleft|focusdown|focusup|focusright|moveleft|movedown|moveup|moveright|splithorizontal|splitvertical|modes]
+bindsym $mod+q kill
+floating_modifier $mod
+bindsym $mod+Tab workspace next
+bindsym $mod+f fullscreen toggle
+bindsym $mod+$mod2+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+space floating toggle
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+$mod2+Left move left
+bindsym $mod+$mod2+Down move down
+bindsym $mod+$mod2+Up move up
+bindsym $mod+$mod2+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+r mode "RESIZE"
+bindsym $mod+$mod2+Home mode "GAMING"
+
+# Media Keys [volume|mute|play|pause|next|previous]
+bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/media_control.sh +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id $scripts/media_control.sh -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id $scripts/media_control.sh mute && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioPlay exec --no-startup-id $scripts/media_control.sh
+bindsym XF86AudioNext exec --no-startup-id $scripts/media_control.sh next
+bindsym XF86AudioPrev exec --no-startup-id $scripts/media_control.sh previous
+
+# Util Binds [screenshot|colorpicker|applicationlauncher|terminal|kitty|reloadi3|restarti3]
+bindsym $mod+$mod2+s exec flameshot gui
+bindsym $mod+c exec --no-startup-id xcolor | xclip -selection clipboard
+bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun -show-icons -config $rofiCfg"
+bindsym $mod+Return exec "kitty -c $kittyCfg"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+l exec --no-startup-id "$scripts/power_menu.sh $rofiCfg"
+bindsym $mod+n exec --no-startup-id nemo
+
+# Workspaces
+bindsym F1 workspace number $ws1
+bindsym F2 workspace number $ws2
+bindsym F3 workspace number $ws3
+bindsym F4 workspace number $ws4
+bindsym F5 workspace number $ws5
+bindsym F6 workspace number $ws6
+bindsym F7 workspace number $ws7
+bindsym F8 workspace number $ws8
+bindsym F9 workspace number $ws9
+bindsym F10 workspace number $ws10
+bindsym $mod+F1 move container to workspace number $ws1
+bindsym $mod+F2 move container to workspace number $ws2
+bindsym $mod+F3 move container to workspace number $ws3
+bindsym $mod+F4 move container to workspace number $ws4
+bindsym $mod+F5 move container to workspace number $ws5
+bindsym $mod+F6 move container to workspace number $ws6
+bindsym $mod+F7 move container to workspace number $ws7
+bindsym $mod+F8 move container to workspace number $ws8
+bindsym $mod+F9 move container to workspace number $ws9
+bindsym $mod+F10 move container to workspace number $ws10
+
+# System modes[gaming|resize]
+mode "GAMING" {
+    bindsym $mod+Home mode "default"
+    bindsym $mod3+F4 kill
+
+    bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/media_control.sh +10% && $refresh_i3status
+    bindsym XF86AudioLowerVolume exec --no-startup-id $scripts/media_control.sh -10% && $refresh_i3status
+    bindsym XF86AudioMute exec --no-startup-id $scripts/media_control.sh mute && $refresh_i3status
+    bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+    bindsym XF86AudioPlay exec --no-startup-id $scripts/media_control.sh
+    bindsym XF86AudioNext exec --no-startup-id $scripts/media_control.sh next
+    bindsym XF86AudioPrev exec --no-startup-id $scripts/media_control.sh previous
+}
+mode "RESIZE" {
+    bindsym $left       resize shrink width 10 px or 10 ppt
+    bindsym $down       resize grow height 10 px or 10 ppt
+    bindsym $up         resize shrink height 10 px or 10 ppt
+    bindsym $right      resize grow width 10 px or 10 ppt
+
+    bindsym Left        resize shrink width 10 px or 10 ppt
+    bindsym Down        resize grow height 10 px or 10 ppt
+    bindsym Up          resize shrink height 10 px or 10 ppt
+    bindsym Right       resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}

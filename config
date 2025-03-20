@@ -1,0 +1,36 @@
+######################################################################################################
+#   .                            ...                                                 .               #
+#  @88>    .x~~"*Weu.         xH88"`~ .x8X                                 oec :    @88>             #
+#  %8P    d8Nu.  9888c      :8888   .f"8888Hf        u.      u.    u.     @88888    %8P              #
+#   .     88888  98888     :8888>  X8L  ^""`   ...ue888b   x@88k u@88c.   8"*88%     .         uL    #
+# .@88u   "***"  9888%     X8888  X888h        888R Y888r ^"8888""8888"   8b.      .@88u   .ue888Nc..#
+#''888E`       ..@8*"      88888  !88888.      888R I888>   8888  888R   u888888> ''888E` d88E`"888E`#
+#  888E     ````"8Weu      88888   %88888      888R I888>   8888  888R    8888R     888E  888E  888E #
+#  888E    ..    ?8888L    88888 '> `8888>     888R I888>   8888  888R    8888P     888E  888E  888E #
+#  888E  :@88N   '8888N    `8888L %  ?888   ! u8888cJ888    8888  888R    *888>     888E  888E  888E #
+#  888&  *8888~  '8888F     `8888  `-*""   /   "*888*P"    "*88*" 8888"   4888      888&  888& .888E #
+#  R888" '*8"`   9888%        "888.      :"      'Y"         ""   'Y"     '888      R888" *888" 888& #
+#   ""     `~===*%"`            `""***~"`                                  88R       ""    `"   "888E#
+#                                                                          88>            .dWi   `88E#
+#                                                                          48             4888~  J8% #
+#                                                                          '8              ^"===*"`  #
+######################################################################################################
+exec --no-startup-id dex --autostart --environment i3
+exec dbus-update-activation-environment DISPLAY
+exec_always --no-startup-id xset s 3600
+exec_always --no-startup-id xset -dpms
+exec --no-startup-id dunstctl reload
+#exec --no-startup-id "ln -sf ~/.config/i3/.zshrc ~/.zshrc"
+#exec --no-startup-ip "ln -sf ~/.config/i3/.zshrc ~/.config/zsh/.zshrc"
+
+# Binds 
+include ~/.config/i3/$MY_HOSTNAME/binds
+
+# Displays
+include ~/.config/i3/$MY_HOSTNAME/displays
+
+# Autostart
+include ~/.config/i3/$MY_HOSTNAME/autostart
+
+# Theme
+include ~/.config/i3/theme

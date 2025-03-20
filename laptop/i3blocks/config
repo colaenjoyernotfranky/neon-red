@@ -1,0 +1,21 @@
+[border]
+command=echo " "
+interval=once
+
+[time]
+command=date +%H:%M
+interval=1
+
+[margin]
+command=echo "                                                                                                                       "
+interval=once
+
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=1800
+color=#FFFFFF
+
+[cpu]
+command=echo " CPU: $(grep 'cpu ' /proc/stat | awk '{usage=int(($2+$4)*100/($2+$4+$5))} END {print usage "%"}')"
+interval=3
+color=#FFFFFF
