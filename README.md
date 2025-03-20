@@ -4,8 +4,7 @@ This is my first i3 configuration which I use on a daily basis and it works both
 
 ### Preview
 
-![image](https://github.com/user-attachments/assets/a5a55161-ee4a-4a1b-bcf9-0eddb2081df5)
-
+![preview](https://github.com/user-attachments/assets/c6a684d1-b7d7-4808-a554-23b6cd1bf541)
 
 > [!NOTE]
 > This config is constantly WIP and things are getting added as I go through daily use. Some features might be missing, some might not match the them etc.
